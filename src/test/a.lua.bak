@@ -1,0 +1,3 @@
+ x = "Hello lua"
+  
+ local testnum = "100"
