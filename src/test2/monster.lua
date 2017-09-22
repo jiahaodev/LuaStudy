@@ -1,4 +1,4 @@
---require("dump")
+require("dump")
 
 --[[
 前提
@@ -71,11 +71,13 @@ local function main()
           return rank =="inc" and a[key] < b[key] or a[key] > b[key];
         end
       end
+      --边界处理
       local last = #priority;
       local lastKey = priority[last].key;
       local lastRank = priority[last].rank;
       return lastRank == "inc" and a[lastKey] < b[lastKey] or a[lastKey] > b[lastKey];
   end)
   
+  dump(MonsterList);
 end
 main()

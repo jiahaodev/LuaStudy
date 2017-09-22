@@ -1,4 +1,5 @@
-local jiesuan = require("test2.jiesuan");
+require("dump");
+local jiesuan = require("jiesuan");
 
 local record = {}
 -- --重点辨别身份，二级缓存
@@ -51,6 +52,7 @@ local function main()
   end
   --去除两重标识，并且list排序
   local record = handleChain(record);
+  dump(record)
   return record;
 end
 
