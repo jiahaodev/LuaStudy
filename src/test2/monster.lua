@@ -34,7 +34,6 @@ local MonsterList = {
 local function main()
   ---执行你的代码，dump出排序结果
 --  dump(MonsterList)
-  local a = MonsterList;
     --解法一：
 --   table.sort(MonsterList,function(a,b)
 --     if a.level == b.level then
@@ -78,6 +77,5 @@ local function main()
       return lastRank == "inc" and a[lastKey] < b[lastKey] or a[lastKey] > b[lastKey];
   end)
   
-  local b =1;
 end
 main()

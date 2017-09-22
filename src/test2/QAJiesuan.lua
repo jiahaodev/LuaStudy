@@ -13,23 +13,33 @@ local function getNumRecornize(item)
   record[tag1][tag2] = item;
 end
 
-local  function handleChain(tab)
-   if type(tab) ~="table" or tab.id or type(tab) == "string" then
+local  handleChain;
+handleChain = function(tab)
+   if tab.id then
       return tab;
    end
    local temp = {};
    local result = {};
+   --加key
    for k,item in pairs(tab) do
       local keyContent ={};
       keyContent.key = k;
       keyContent.content = item;
       table.insert(temp,keyContent);
    end
+   --排序
    table.sort(temp,function(a,b)
        return a.key < b.key;
    end)
+   --key-value -- > list
    for i,v in ipairs(temp) do
       table.insert(result,v.content);
+   end
+   --递归
+   for i,v in ipairs(result) do
+      if type(v) == "table" then
+        result[i] = handleChain(v);
+      end
    end
    return result;
 end
@@ -41,9 +51,6 @@ local function main()
   end
   --去除两重标识，并且list排序
   local record = handleChain(record);
-  for i,v in ipairs(record) do
-    record[i] = handleChain(v)
-  end
   return record;
 end
 
