@@ -18,7 +18,14 @@ function fact(n)
 end
 
 print("enter a number:")
-print(fact(5))
+
+--交互模式运行
+-- a = io.read("*number")
+
+--测试模式
+a = 5
+
+print(fact(a))
 
 
 print (b);
@@ -29,9 +36,15 @@ print(b);
 b = nil;
 print(b);
 
-
-
-
+--启动参数
+--> lua 脚本名称 a b c     
+--存在一个全局变量arg ，用于记录参数 
+--如： lua -e "sin=math.sin" script a b
+--首先， arg[1] = a, arg[2] = b
+--       arg[0] = "script"
+--		 arg[-1] = "sin=math.sin"
+--		 arg[-2] = "-e"
+--		 arg[-3] = "lua"
 
 
 
